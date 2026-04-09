@@ -1,0 +1,193 @@
+/* ================================================================
+   CHECKOUT PAGE — responsive, full-width, notes popup
+   ================================================================ */
+
+.ck-page { padding: 20px 24px; display: flex; flex-direction: column; gap: 20px; }
+.ck-card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  overflow: hidden;
+}
+
+/* Success */
+.ck-success { text-align: center; margin-top: 10vh; }
+.ck-success__icon { background: var(--status-green-bg); color: var(--status-green); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+.ck-success h2 { margin-bottom: 8px; }
+.ck-success p { color: var(--text-secondary); font-size: 14px; margin-bottom: 20px; }
+
+/* Brand tabs */
+.ck-brand-tabs { display: flex; gap: 12px; flex-wrap: wrap; }
+.ck-brand-tab {
+  background: var(--surface-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 12px 16px;
+  min-width: 120px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.ck-brand-tab:hover { background: #E0DEED; }
+.ck-brand-tab--active { background: #fff; border-left: 3px solid var(--brand-primary); box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+.ck-brand-tab__code { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+.ck-brand-tab__val { font-size: 13px; }
+.ck-brand-tab__loc { font-size: 11px; color: var(--text-secondary); font-weight: 600; }
+
+/* Form */
+.ck-form { padding: 24px; }
+.ck-form__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.ck-form__field label {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;
+}
+.ck-form__field input,
+.ck-form__field select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-bg);
+  font-size: 13px;
+}
+
+/* Table */
+.ck-table-wrap { overflow-x: auto; }
+.ck-table { width: 100%; border-collapse: collapse; min-width: 900px; }
+.ck-table th {
+  background: var(--brand-primary-ghost);
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  border-bottom: 1px solid var(--border-light);
+  white-space: nowrap;
+}
+.ck-table td {
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+}
+.ck-product-code { font-weight: 600; color: var(--brand-primary); font-size: 13px; }
+.ck-product-desc { font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
+.ck-bm { font-size: 11px; }
+.ck-total-cell { font-weight: 700; color: var(--text-primary); }
+
+/* Stepper */
+.ck-stepper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  height: 32px;
+  width: fit-content;
+  margin: 0 auto;
+}
+.ck-stepper button {
+  width: 28px; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary); cursor: pointer; background: none; border: none;
+}
+.ck-stepper button:hover { background: var(--brand-primary-subtle); }
+.ck-stepper input {
+  width: 36px; height: 100%; border: none;
+  border-left: 1px solid var(--border); border-right: 1px solid var(--border);
+  text-align: center; font-size: 13px; font-weight: 600;
+}
+
+.ck-reason-select { padding: 5px 8px; border: 1px solid var(--border); border-radius: 4px; font-size: 11px; width: 110px; }
+
+/* Notes icon in table */
+.ck-notes-icon {
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 6px; border: 1px solid var(--border);
+  color: var(--brand-primary); background: var(--brand-primary-ghost);
+  cursor: pointer; transition: all .15s;
+  margin: 0 auto;
+}
+.ck-notes-icon:hover { background: var(--brand-primary-subtle); border-color: var(--brand-accent); }
+
+.ck-delete-btn {
+  color: var(--text-tertiary); cursor: pointer; transition: color .15s; background: none; border: none;
+}
+.ck-delete-btn:hover { color: var(--status-red); }
+
+.ck-add-more {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px; color: var(--brand-primary); font-weight: 600; font-size: 13px; cursor: pointer;
+}
+
+/* PO Notes bar */
+.ck-notes-bar { display: flex; gap: 12px; flex-wrap: wrap; }
+.ck-notes-bar__btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-radius: 8px;
+  border: 1px solid var(--border); background: #fff;
+  color: var(--brand-primary); font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all .15s;
+}
+.ck-notes-bar__btn:hover { background: var(--brand-primary-subtle); border-color: var(--brand-accent); }
+
+/* Actions */
+.ck-actions { display: flex; justify-content: flex-end; gap: 12px; padding-top: 4px; }
+
+/* Buttons */
+.ck-btn { padding: 10px 28px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; transition: all .15s; }
+.ck-btn--dark { background: var(--brand-primary-dark); color: #fff; }
+.ck-btn--dark:hover { background: var(--brand-primary); }
+.ck-btn--dark:disabled { opacity: .5; cursor: not-allowed; }
+.ck-btn--outline { background: #fff; border: 1px solid var(--border); color: var(--text-secondary); }
+
+/* Notes Modal */
+.ck-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.4);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+  animation: ckFadeIn .2s ease;
+}
+.ck-modal {
+  background: #fff; border-radius: 12px;
+  width: 520px; max-width: 95vw;
+  box-shadow: 0 20px 60px rgba(0,0,0,.15);
+}
+.ck-modal__header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 24px; border-bottom: 2px solid var(--brand-primary);
+}
+.ck-modal__header h3 { font-size: 15px; font-weight: 700; }
+.ck-modal__close {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 6px; color: var(--text-tertiary); cursor: pointer;
+}
+.ck-modal__close:hover { background: var(--status-red-bg); color: var(--status-red); }
+.ck-modal__body { padding: 20px 24px; }
+.ck-modal__body textarea {
+  width: 100%; min-height: 160px; padding: 14px;
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; resize: vertical; background: #f8f9fc;
+}
+.ck-modal__footer {
+  display: flex; justify-content: flex-end; gap: 10px;
+  padding: 14px 24px; border-top: 1px solid var(--border-light);
+}
+
+@keyframes ckFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .ck-form__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .ck-page { padding: 12px; }
+  .ck-form__grid { grid-template-columns: 1fr; }
+  .ck-brand-tabs { flex-direction: column; }
+}
